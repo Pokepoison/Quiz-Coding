@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #019597;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .container {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+    
+  
+  
+  .app {
+    width: 90%;
+    max-width: 700px;
+    margin: 100px auto 0;
+    border-radius: 20px;
+    padding: 20px;
+    height: 70vh;
+    background-color: #5e085e;
+  } 
+  
+  .app h1 {
+    text-align: center;
+    color: #019597;
+    font-weight: 600px;
+    border-bottom: 3px solid #019597;
+    padding-bottom: 10px;
+    font-size: 40px;
+  }
+  
+  .quiz {
+    margin-top: 15px;
+  }
+  
+  .quiz h2 {
+    color: #019597;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  
+  .btn{
+    display: flex;;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    background-color:#019597;
+    color:#5e085e;
+    cursor: pointer;
+    margin: 10px 0;
+    border: 1px solid #000000;
+    text-align: left;
+    transition: all 0.5s ease;
+  }
+  
+  .btn:hover:not([disabled]){
+    background-color: #5e085e;
+    color: #019597;
+  }
+  
+  .btn:disabled{
+    
+    cursor: no-drop;
+  }
+  #next-btn{
+    display: none;
+    width: 150px;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #019597;
+    color: #5e085e;
+    border: 1px solid #000000;
+    transition: all 0.2s ease;
+    margin: 20px auto 0;
+    cursor: pointer;
+  }
+  
+  #next-btn:hover{
+   
+    background-color: #5e085e;
+    color: #019597;
+  }
+  
+  .correct{
+    background-color: #02363d;
+    color: #26a541;
+  }
+  
+  .wrong{
+    background-color: #010e14;
+    color: #ff0000;
+  }
+  
+  .start-btn{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    padding: 50px;
+    text-align: center;
+    
+    
+    
+    border-radius: 8px;
+    background-color: #5e085e;
+    color: #019597; 
+    border: 1px solid #000000;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  #play-again{
+    display: none;
+    width: 150px;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #019597;
+    color: #5e085e;
+    border: 1px solid #000000;
+    transition: all 0.2s ease;
+    margin: 20px auto 0;
+    cursor: pointer;
+  }
+
