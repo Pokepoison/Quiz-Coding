@@ -8,42 +8,37 @@
 </head>
 
 <body>
-
-   
-
-
-<div class="app">
-    <div id="start-screen">
-        <button id="start-button" onclick="startTimer()">Start</button>
-    </div>
-    <div id="questions-screen">
-        <div id="timer">
-            00:00
+        <div class="app">
+            <div id="start-btn">
+                <button id="start-button" onclick="startTimer()">Start</button>
+            </div>
+        <div id="questions-screen">
+            <div id="timer">
+                00:00
+            </div>  
         </div>
-        <h1>Quiz Yourself</h1>
+            <h1>Quiz Yourself</h1>
         <div class="quiz" class="time">
-            <h2 id="question">Questions on HTML, CSS, and JavaScript</h2>
+            <h2 id="question">Questions on JavaScript</h2>
             <div id="answer-buttons">
-                <button class="btn">Number 1<span class="choice1"></span></button>
-                <button class="btn">Number 2<span class="choice2"></span></button>
-                <button class="btn">Number 3<span class="choice3"></span></button>
-                <button class="btn">Number 4<span class="choice4"></span></button>
-            <!--<button class="btn">Number 5<span class="choice5"></span></button> -->
+                <button class="btn">Number 1</button>
+                <button class="btn">Number 2 </button>
+                <button class="btn">Number 3</button>
+                <button class="btn">Number 4</button>
+            
             </div>
             <button id="next-btn">Next</button>
             <button id="play-again">play again</button>
         </div>
     </div>
-</div>
-
-<div class="end-screen" id="score-list">
-    <h1>Quiz Complete</h1>
-    <h3 id="final-score">Your final score is <span></span></h3>
-    <form>
-        <input type="text" id="initials" placeholder="Enter Initials">
-        <button id="save-btn">Save</button>
-        <!--<button id="look-btn">Scores</button>-->
-    </form>
+    <div class="end-screen" id="score-list">
+        <h1>Quiz Complete</h1>
+        <h3 id="final-score">Your final score is <span></span></h3>
+        <form id="final-score">
+            <input type="text" id="initials" placeholder="Enter Initials">
+            <button id="save-btn">Save</button>
+        </form>
+    </div>
 </div>
 
 <script src="./assets/js/script.js"></script>

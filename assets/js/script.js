@@ -1,5 +1,5 @@
-const questions = [
-    
+
+  var questions = [
     {
         question: "What is the correct syntax for referring to an external script called 'script.js'?",
         answers: [
@@ -37,7 +37,7 @@ const questions = [
         ]
     },
   ];
-  
+
   
   var timerDisplay = document.getElementById("timer");
   var initialDuration = 40; // Store the initial duration
@@ -50,7 +50,7 @@ const questions = [
       timerDisplay.textContent = "Time: " + duration;
   
       // Check if the timer has reached 0
-      if (duration <= 0) {
+      if (duration === 0) {
         clearInterval(timer);
         duration = 0;
         showScore();
@@ -71,19 +71,17 @@ const questions = [
   }
   
   
-  var startBtn = document.getElementById("start-btn");
+  var startBtn = document.getElementById("start-button");
   
-
+  var questionElement = document.getElementById("question");
   
-  const questionElement = document.getElementById("question");
+  var answerButtons = document.getElementById("answer-buttons");
   
-  const answerButtons = document.getElementById("answer-buttons");
-  
-  const nextButton = document.getElementById("next-btn");
+  var nextButton = document.getElementById("next-btn");
   
   var timeEl = document.querySelector(".time");
   
-  //answerButtons.addEventListener("click", startTimer);
+  var playAgainButton = document.getElementById("play-again");
   
   let currentQuestionIndex = 0;
   let score = 0;
@@ -95,19 +93,18 @@ const questions = [
     score = 0;
     nextButton.innerHTML = "Next";
     showQuestion();
-     // Clear existing scores from the end screen
-     const finalScoreElement = document.getElementById("final-score");
-     finalScoreElement.innerHTML = "";
+     
+     
   }
   
   function showQuestion() {
     resetState();
-    let currentQuestion = questions[currentQuestionIndex];
-    let questionNo = currentQuestionIndex + 1;
+    var currentQuestion = questions[currentQuestionIndex];
+    var questionNo = currentQuestionIndex + 1;
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
   
     currentQuestion.answers.forEach(answer => {
-        const button = document.createElement("button");
+        var button = document.createElement("button");
         button.innerText = answer.text;
         button.classList.add("btn");
        answerButtons.appendChild(button);
@@ -121,16 +118,14 @@ const questions = [
   
   function resetState() {
     nextButton.style.display = "none";
-    //while (answerButtons.firstChild) {
-       // answerButtons.removeChild(answerButtons.firstChild);
        for (var i = answerButtons.children.length - 1; i >= 0; i--) {
         answerButtons.removeChild(answerButtons.children[i]);
     }
   }
   
   function selectAnswer(e) {
-    const selectedBtn = e.target;
-    const isCorrect = selectedBtn.dataset.correct === "true";
+    var selectedBtn = e.target;
+    var isCorrect = selectedBtn.dataset.correct === "true";
     if (isCorrect) {
         selectedBtn.classList.add("correct");
         score++;
@@ -147,17 +142,6 @@ const questions = [
     nextButton.style.display = "block";
   }
   
-  function saveScore(initials, score) {
-    // Retrieve existing scores from local storage (if any)
-    const existingScores = JSON.parse(localStorage.getItem("scores")) || [];
-  
-    // Add the new score to the existing scores array
-    existingScores.push({ initials, score });
-  
-    // Store the updated scores array in local storage
-    localStorage.setItem("scores", JSON.stringify(existingScores));
-  }
-  
  
   function showScore() {
     resetState();
@@ -165,39 +149,12 @@ const questions = [
     nextButton.innerHTML = "Play Again";
     nextButton.style.display = "block";
     nextButton.removeEventListener("click", handleNextButton); // Remove the event listener from the next button
-    //=> this is new
+    nextButton.style.display = "block";
     nextButton.addEventListener("click", function () {
         startQuiz();
         startTimer();
     });
-    
-    // Prompt the user to enter their initials
-    const initialsInput = document.getElementById("initials");
-    const initials = initialsInput.value;
-  
-    // Call the saveScore function to store the score in local storage
-    saveScore(initials, score);
   }
-  
-  const saveButton = document.getElementById("save-btn");
-saveButton.addEventListener("click", function() {
-  const initialsInput = document.getElementById("initials");
-  const initials = initialsInput.value;
-
-  // Call the saveScore function to store the score in local storage
-  saveScore(initials, score);
-});
-
-// Recall scores from local storage
-const scores = JSON.parse(localStorage.getItem("scores")) || [];
-
-// Sort the scores in descending order
-scores.sort((a, b) => b.score - a.score);
-
-// Display the scores in a list
-const scoreList = document.getElementById("score-list");
-scoreList.innerHTML = scores.map(score => `<li>${score.initials} - ${score.score}</li>`).join("");
-  
   
   function handleNextButton() {
     currentQuestionIndex++;
@@ -216,9 +173,36 @@ scoreList.innerHTML = scores.map(score => `<li>${score.initials} - ${score.score
     }
   
     });
-  startQuiz();
+
+    startBtn.addEventListener("click", function() {
+        startTimer();
+        startQuiz();  
+    });
+
+    function saveScore() {
+        localStorage.setItem("score", score);
+        localStorage.setItem("initials", initials);
+    }
+
+    function checkForEnter(event) {
+        if (event.key === "Enter") {
+            saveHighscore();
+        }
+    } 
+
+    function saveHighscore() {
+        initials = initialsEl.value.trim();
+        if (initials !== "") {
+            var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+            var newScore = {
+                score: score,
+                initials: initials
+            };
+            highscores.push(newScore);
+            window.localStorage.setItem("highscores", JSON.stringify(highscores));
+            window.location.href = "highscores.html";
+        }
+    }
 
     
  
-
-

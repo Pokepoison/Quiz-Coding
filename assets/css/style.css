@@ -138,3 +138,32 @@
     cursor: pointer;
   }
 
+#score-list{
+  display: none;
+  width: 150px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: #019597;
+  color: #5e085e;
+  border: 1px solid #000000;
+  transition: all 0.2s ease;
+  margin: 20px auto 0;
+  cursor: pointer;
+}
+
+#start-button{
+  width: 150px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: #019597;
+  color: #5e085e;
+  border: 1px solid #000000;
+  transition: all 0.2s ease;
+  margin: 20px auto 0;
+  cursor: pointer;
+}
+
+#start-button:hover{
+  background-color: #5e085e;
+  color: #019597;
+}
